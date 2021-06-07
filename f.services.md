@@ -134,8 +134,7 @@ kubectl create deploy foo --image=dgkanatsios/simpleapp --port=8080 --replicas=3
 
 ```bash
 kubectl get pods -l app=foo -o wide # 'wide' will show pod IPs
-kubectl run busybox --image=busybox --restart=Never -it --rm -- sh
-wget -O- POD_IP:8080 # do not try with pod name, will not work
+kubectl run busybox --image=busybox --restart=Never -it --rm -- wget -O- POD_IP:8080 # do not try with pod name, will not work
 # try hitting all IPs to confirm that hostname is different
 exit
 # or
